@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    overflow: hidden;
+  }
+  
+  button {
+    position: absolute;
+    top: 10px;
+    z-index: 10;
+    padding: 6px 10px;
+  }
+  
+  #add-box {
+    left: 10px;
+  }
+  #save-layout {
+    left: 100px;
+  }
+  #load-layout {
+    left: 180px;
+  }
+  
+  #viewport {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: #f9f9f9;
+    cursor: grab;
+  }
+  
+  #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, #eee 1px, transparent 1px),
+                      linear-gradient(to bottom, #eee 1px, transparent 1px);
+  }
+  
+  .box {
+    position: absolute;
+    background-color: #4a90e2;
+    padding: 10px;
+    color: white;
+    border-radius: 4px;
+    user-select: none;
+    cursor: move;
+  }
+  
+  #controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+  }
+  
+  #zoom-in, #zoom-out {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    line-height: 1;
+  }
+  #minimap {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    cursor: pointer;
+  }
+    

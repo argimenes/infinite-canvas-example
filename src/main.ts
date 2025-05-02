@@ -1,24 +1,18 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { InfiniteCanvas } from './InfiniteCanvas';
+import { saveLayout, loadLayout } from './layout';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const canvas = new InfiniteCanvas('viewport', 'canvas', 'add-box');
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+document.getElementById('save-layout')!.addEventListener('click', () => {
+  const boxes = canvas.getBoxes();
+  saveLayout(boxes);
+  alert('Layout saved!');
+});
+
+document.getElementById('load-layout')!.addEventListener('click', () => {
+  const data = loadLayout();
+  canvas.loadBoxes(data);
+});
+
+document.getElementById('zoom-in')!.addEventListener('click', () => canvas.zoomIn());
+document.getElementById('zoom-out')!.addEventListener('click', () => canvas.zoomOut());
