@@ -65,6 +65,13 @@ body {
     font-size: 20px;
     line-height: 1;
   }
+
+  #zoom-in {
+    left: 260px;
+  }
+  #zoom-out {
+    left: 300px;
+  }
   #minimap {
     position: absolute;
     bottom: 10px;
